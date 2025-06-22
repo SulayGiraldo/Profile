@@ -1,0 +1,489 @@
+/* Variables y estilos base - UNICA DEFINICION DE :ROOT */
+:root {
+    /* Colores light mode (default) */
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --border-color: #e9ecef;
+    --text-light: #333;
+    --white: #ffffff;
+    --dark-gray: #6c757d;
+    --medium-gray: #e9ecef;
+}
+
+[data-theme="dark"] {
+    /* Colores dark mode */
+    --primary-color: #ffffff;
+    --secondary-color: #8f8f8f;
+    --text-color: #faf8f8;
+    --bg-color: #1A202C;
+    --card-bg: #393939; /* Fondo de las tarjetas - en este caso Idiomas */
+    --border-color: #ffffff; /* barrita abajo del menu */
+    --text-light: #b4b4b4; /* Texto selecionado menu */
+    --white: #393939; /* cuadros para textos y borde de la foto y textos en pie de pagina */
+    --dark-gray: #ffffff; /* fechas de las experiencias */
+    --medium-gray: #333;
+    --icon-color: #3498db; /* Mismo azul claro para iconos */
+}
+
+i, .fas, .fab {
+    color: var(--icon-color);
+    transition: color 0.3s ease;
+}
+
+[data-theme="dark"] .download-btn {
+    background-color: var(--secondary-color);
+    color: #121212; /* Texto oscuro para mejor contraste */
+}
+
+[data-theme="dark"] .download-btn:hover {
+    background-color: #3498db;
+}
+
+.download-btn.generating {
+    background-color: var(--secondary-color) !important;
+    cursor: wait;
+}
+
+/* Animación del spinner */
+.fa-spinner {
+    margin-right: 8px;
+}
+
+/* Estilos base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilos del botón toggle */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Header */
+header {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    position: relative; /* Para posicionar el botón correctamente */
+}
+
+nav a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+nav a.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+
+/* Profile Section */
+.profile-section {
+    margin: 40px 0;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* Contenedor de foto y redes sociales */
+.profile-photo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30px;
+}
+
+/* Foto de perfil (manteniendo tus estilos actuales) */
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+/* Redes sociales - versión vertical */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.social-links a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.profile-info h1 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 2.2rem;
+}
+
+.profile-info h2 {
+    margin: 5px 0 15px;
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.profile-info p {
+    margin: 0 0 20px;
+    max-width: 500px;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+    background-color: #1a252f;
+}
+
+.download-btn i {
+    margin-right: 8px;
+}
+
+.profile-description {
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
+
+.profile-description p {
+    margin: 0 0 15px;
+}
+
+.profile-description p:last-child {
+    margin-bottom: 0;
+}
+
+/* Secciones comunes */
+h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin: 40px 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+h3 i {
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+
+/* Experiencia */
+.experience-card, .education-card {
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.experience-header, .education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.experience-header h4, .education-header h4 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.experience-period, .education-period {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+}
+
+.experience-company, .education-institution {
+    color: var(--secondary-color);
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.experience-details ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.experience-details li {
+    margin-bottom: 8px;
+}
+
+/* Habilidades */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.skill-category {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.skill-category h4 {
+    margin: 0 0 15px;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.skill-category ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.skill-category li {
+    margin-bottom: 8px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 40px 0;
+    margin-top: 60px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+}
+
+footer .contact-item i {
+    color: var(--icon-color);
+}
+
+.contact-item i {
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+
+
+.copyright {
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(136, 136, 136, 0.7);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+ 
+    .profile-photo {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .profile-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }    
+    
+    .profile-photo-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }    
+    
+    .experience-header, .education-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .experience-period, .education-period {
+        margin-top: 5px;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+/* Contacto en header */
+.contact-info-header {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+.contact-info-header i {
+    margin-right: 8px;
+    width: 16px;
+    text-align: center;
+}
+
+/* Sección de idiomas */
+.languages-section {
+    margin: 40px 0;
+}
+
+.languages-container {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.language-item {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.language-name {
+    font-weight: 600;
+    min-width: 100px;
+}
+
+.language-level {
+    color: var(--text-light);
+}
+
+
+/* Justificación tipo Word (sin división de palabras) */
+.profile-description,
+.profile-description p,
+.experience-details,
+.experience-details li,
+.skill-category ul,
+.skill-category li,
+.education-card,
+.languages-container {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: manual; /* Desactiva la división automática */
+    word-spacing: normal; /* Espaciado normal entre palabras */
+}
+
+/* Ajuste fino para evitar espacios grandes */
+.profile-description p,
+.experience-details {
+    word-spacing: -0.1px; /* Ajuste sutil para mejorar el espaciado */
+}
+
+/* Para navegadores WebKit (Chrome, Safari) */
+@supports (-webkit-hyphens: none) {
+    .profile-description,
+    .profile-description p,
+    .experience-details,
+    .experience-details li {
+        -webkit-hyphens: none;
+        hyphens: none;
+    }
+}
+
+.experience-company a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.experience-company a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+
+.techstack-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.techstack-grid h4 {
+  margin: 8px 0 4px;
+  font-weight: bold;
+}
+.techstack-grid p {
+  margin: 0;
+  /* color: #444; */
+  color: var(--text-light);
+}
+
+.languages-container ul li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+
+.custom-bullets {
+  list-style: none;
+  padding-left: 0;
+}
+.custom-bullets li::before {
+  content: '';
+}
